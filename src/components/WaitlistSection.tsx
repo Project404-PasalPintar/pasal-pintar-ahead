@@ -149,7 +149,7 @@ const WaitlistSection = () => {
                     <div className="text-sm text-slate-600">Orang menunggu</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-primary">Q2 2024</div>
+                    <div className="text-2xl font-bold text-primary">SEGERA</div>
                     <div className="text-sm text-slate-600">Target peluncuran</div>
                   </div>
                   <div>
