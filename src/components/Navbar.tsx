@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Menu, X, Scale } from "lucide-react";
 import logoImage from "../assets/logo/pasalpintar.png";
@@ -5,10 +6,24 @@ import logoImage from "../assets/logo/pasalpintar.png";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
+      
+      // Check which section is currently in view
+      const sections = ["features", "about", "waitlist"];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      
+      setActiveSection(current || "");
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -63,9 +78,14 @@ const Navbar = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-slate-600 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`relative text-slate-600 hover:text-primary transition-colors duration-300 font-medium ${
+                    activeSection === link.id ? "text-primary" : ""
+                  }`}
                 >
                   {link.title}
+                  {activeSection === link.id && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform transition-transform duration-300"></div>
+                  )}
                 </button>
               ))}
             </div>
@@ -100,7 +120,9 @@ const Navbar = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left px-3 py-2 text-slate-600 hover:text-primary transition-colors duration-300 font-medium"
+                  className={`block w-full text-left px-3 py-2 text-slate-600 hover:text-primary transition-colors duration-300 font-medium ${
+                    activeSection === link.id ? "text-primary border-l-2 border-primary" : ""
+                  }`}
                 >
                   {link.title}
                 </button>
