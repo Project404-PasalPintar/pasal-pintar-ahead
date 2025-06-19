@@ -12,10 +12,13 @@ const ProblemSolutionSection = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (entry.target === leftColumnRef.current) {
+              entry.target.classList.remove('opacity-0');
               entry.target.classList.add('animate-slide-in-left');
             } else if (entry.target === rightColumnRef.current) {
+              entry.target.classList.remove('opacity-0');
               entry.target.classList.add('animate-slide-in-right');
             }
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -42,7 +45,13 @@ const ProblemSolutionSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Problem Column */}
-          <div ref={leftColumnRef} className="opacity-0">
+          <div 
+            ref={leftColumnRef} 
+            className="opacity-0"
+            style={{
+              animationFillMode: 'forwards'
+            }}
+          >
             <div className="bg-red-50 border border-red-100 rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <AlertCircle className="text-red-500 mr-3" size={32} />
@@ -78,7 +87,13 @@ const ProblemSolutionSection = () => {
           </div>
 
           {/* Solution Column */}
-          <div ref={rightColumnRef} className="opacity-0">
+          <div 
+            ref={rightColumnRef} 
+            className="opacity-0"
+            style={{
+              animationFillMode: 'forwards'
+            }}
+          >
             <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8">
               <div className="flex items-center mb-6">
                 <CheckCircle className="text-primary mr-3" size={32} />

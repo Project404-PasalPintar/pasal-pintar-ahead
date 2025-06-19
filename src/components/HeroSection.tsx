@@ -9,6 +9,7 @@ const HeroSection = () => {
   useEffect(() => {
     // Simple animation trigger without GSAP for now
     if (heroContentRef.current) {
+      heroContentRef.current.classList.remove('opacity-0');
       heroContentRef.current.classList.add('animate-fade-in');
     }
     if (phoneRef.current) {
@@ -28,7 +29,13 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Content */}
-          <div ref={heroContentRef} className="flex-1 text-center lg:text-left opacity-0">
+          <div 
+            ref={heroContentRef} 
+            className="flex-1 text-center lg:text-left opacity-0"
+            style={{
+              animationFillMode: 'forwards'
+            }}
+          >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6">
               Solusi Hukum Cepat & Akurat di{' '}
               <span className="text-primary">Genggaman Anda</span>

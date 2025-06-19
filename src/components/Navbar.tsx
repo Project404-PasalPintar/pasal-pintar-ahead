@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Scale } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,11 +35,19 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-xl lg:text-2xl font-bold text-slate-800">
-              Pasal <span className="text-primary">Pintar</span>
-            </h1>
+          {/* Professional Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center">
+                <Scale className="text-white" size={24} />
+              </div>
+              <div>
+                <h1 className="text-xl lg:text-2xl font-bold text-slate-800">
+                  Pasal<span className="text-primary">Pintar</span>
+                </h1>
+                <p className="text-xs text-slate-500 font-medium">Legal AI Platform</p>
+              </div>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
