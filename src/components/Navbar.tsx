@@ -1,6 +1,6 @@
-
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Scale } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Menu, X, Scale } from "lucide-react";
+import logoImage from "../assets/logo/pasalpintar.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,41 +11,47 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     setIsMobileMenuOpen(false);
   };
 
   const navLinks = [
-    { title: 'Fitur', id: 'features' },
-    { title: 'Tentang Kami', id: 'about' },
-    { title: 'Forum', id: 'waitlist' }
+    { title: "Fitur", id: "features" },
+    { title: "Tentang Kami", id: "about" },
+    { title: "Forum", id: "waitlist" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white"
+      }`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Professional Logo */}
           <div className="flex-shrink-0 flex items-center">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-blue-600 rounded-lg flex items-center justify-center">
-                <Scale className="text-white" size={24} />
-              </div>
+              <img
+                src={logoImage}
+                alt="PasalPintar Logo"
+                className="w-10 h-10"
+              />
               <div>
                 <h1 className="text-xl lg:text-2xl font-bold text-slate-800">
                   Pasal<span className="text-primary">Pintar</span>
                 </h1>
-                <p className="text-xs text-slate-500 font-medium">Legal AI Platform</p>
+                <p className="text-xs text-slate-500 font-medium">
+                  Legal AI Platform
+                </p>
               </div>
             </div>
           </div>
@@ -68,7 +74,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <button
-              onClick={() => scrollToSection('waitlist')}
+              onClick={() => scrollToSection("waitlist")}
               className="bg-primary hover:bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg transform hover:scale-105"
             >
               Masuk Daftar Tunggu
@@ -100,7 +106,7 @@ const Navbar = () => {
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection('waitlist')}
+                onClick={() => scrollToSection("waitlist")}
                 className="w-full mt-4 bg-primary hover:bg-blue-600 text-white px-4 py-2.5 rounded-lg font-medium transition-all duration-300"
               >
                 Masuk Daftar Tunggu
