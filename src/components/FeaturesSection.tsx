@@ -13,9 +13,11 @@ const FeaturesSection = () => {
             const cards = entry.target.querySelectorAll('.feature-card');
             cards.forEach((card, index) => {
               setTimeout(() => {
+                card.classList.remove('opacity-0');
                 card.classList.add('animate-fade-in');
               }, index * 150);
             });
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -73,6 +75,9 @@ const FeaturesSection = () => {
               <div
                 key={index}
                 className="feature-card opacity-0 bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+                style={{
+                  animationFillMode: 'forwards'
+                }}
               >
                 <div className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <IconComponent className="text-white" size={32} />

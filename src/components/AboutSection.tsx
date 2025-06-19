@@ -13,9 +13,11 @@ const AboutSection = () => {
             const cards = entry.target.querySelectorAll('.team-card');
             cards.forEach((card, index) => {
               setTimeout(() => {
+                card.classList.remove('opacity-0');
                 card.classList.add('animate-fade-in');
               }, index * 200);
             });
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -75,6 +77,9 @@ const AboutSection = () => {
             <div
               key={index}
               className="team-card opacity-0 bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+              style={{
+                animationFillMode: 'forwards'
+              }}
             >
               {/* Avatar */}
               <div className="w-24 h-24 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
