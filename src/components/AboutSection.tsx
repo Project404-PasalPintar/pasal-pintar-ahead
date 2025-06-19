@@ -35,9 +35,9 @@ const AboutSection = () => {
   const teamMembers = [
     {
       name: "Alif Suryadi",
-      role: "Full Stack Developer",
+      role: "Backend Developer & AI Engineer",
       description:
-        "Spesialis dalam pengembangan aplikasi web dan mobile dengan fokus pada arsitektur sistem yang scalable.",
+        "Bertanggung jawab membangun infrastruktur backend yang scalable, termasuk database dan API, serta mengembangkan dan mendeploy model AI untuk mendukung fitur-fitur cerdas aplikasi.",
       avatar: alifAvatar,
       github: "https://github.com/alifsuryadi",
       linkedin: "https://linkedin.com/in/alifsuryadi",
@@ -47,7 +47,7 @@ const AboutSection = () => {
       name: "Aldi Musneldi",
       role: "Mobile Developer",
       description:
-        "Ahli dalam pengembangan aplikasi mobile native dan cross-platform dengan performa optimal.",
+        "Ahli dalam merancang dan mengembangkan aplikasi mobile native (iOS/Android) dan cross-platform yang intuitif, dengan fokus pada performa tinggi dan pengalaman pengguna yang mulus.",
       avatar: aldiAvatar,
       github: "https://github.com/AldiMusneldi",
       linkedin: "https://linkedin.com/in/aldimusneldi",
@@ -57,7 +57,7 @@ const AboutSection = () => {
       name: "Dwi Andhara Valkyrie",
       role: "Project Manager & AI Engineer",
       description:
-        "Menciptakan pengalaman pengguna yang intuitif dan desain antarmuka yang menarik serta fungsional.",
+        "Memimpin strategi dan siklus hidup proyek, sekaligus menerapkan keahlian teknis AI untuk memastikan pengembangan model kecerdasan buatan berjalan sesuai tujuan.",
       avatar: dwiAvatar,
       github: "https://github.com/dwiandharavalkyrie",
       linkedin: "https://linkedin.com/in/dwi-andhara-valkyrie",
@@ -67,7 +67,7 @@ const AboutSection = () => {
       name: "Hildiah Khairuniza",
       role: "UX/UI Designer",
       description:
-        "Berpengalaman dalam mengintegrasikan frontend dan backend untuk solusi teknologi yang komprehensif.",
+        "Bertanggung jawab untuk riset pengguna, merancang alur pengalaman (UX) yang user-centric, serta menciptakan desain antarmuka (UI) yang estetis dan fungsional.",
       avatar: hildiahAvatar,
       github: "https://github.com/hildiah",
       linkedin: "https://linkedin.com/in/hildiah-khairuniza",
