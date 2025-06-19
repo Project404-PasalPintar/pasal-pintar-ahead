@@ -1,35 +1,31 @@
-
 import React, { useState } from 'react';
 import { Mail, CheckCircle, ArrowRight, Shield, Clock, Bell } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
-
 const WaitlistSection = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!email) {
       toast({
         title: "Email diperlukan",
         description: "Silakan masukkan alamat email Anda.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({
         title: "Email tidak valid",
         description: "Silakan masukkan alamat email yang valid.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-
     setIsSubmitting(true);
 
     // Simulate API call
@@ -38,14 +34,12 @@ const WaitlistSection = () => {
       setIsSubscribed(true);
       toast({
         title: "Berhasil bergabung!",
-        description: "Anda telah berhasil bergabung dengan waitlist Pasal Pintar.",
+        description: "Anda telah berhasil bergabung dengan waitlist Pasal Pintar."
       });
     }, 1500);
   };
-
   if (isSubscribed) {
-    return (
-      <section id="waitlist" className="py-16 lg:py-24 bg-gradient-to-br from-primary to-blue-600">
+    return <section id="waitlist" className="py-16 lg:py-24 bg-gradient-to-br from-primary to-blue-600">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl">
@@ -79,12 +73,9 @@ const WaitlistSection = () => {
             </div>
           </div>
         </div>
-      </section>
-    );
+      </section>;
   }
-
-  return (
-    <section id="waitlist" className="py-16 lg:py-24 bg-gradient-to-br from-primary to-blue-600">
+  return <section id="waitlist" className="py-16 lg:py-24 bg-gradient-to-br from-primary to-blue-600">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-12">
@@ -131,34 +122,18 @@ const WaitlistSection = () => {
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
-                      <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="nama@email.com"
-                        className="w-full pl-12 pr-4 py-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300"
-                        disabled={isSubmitting}
-                      />
+                      <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="nama@email.com" className="w-full pl-12 pr-4 py-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all duration-300" disabled={isSubmitting} />
                     </div>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 px-8 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      <>
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 px-8 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105 flex items-center justify-center gap-2">
+                    {isSubmitting ? <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         Mengirim...
-                      </>
-                    ) : (
-                      <>
+                      </> : <>
                         Kirim
                         <ArrowRight size={20} />
-                      </>
-                    )}
+                      </>}
                   </button>
                 </form>
 
@@ -170,7 +145,7 @@ const WaitlistSection = () => {
                 {/* Counter */}
                 <div className="mt-8 grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-primary">2,340+</div>
+                    <div className="text-2xl font-bold text-primary">25+</div>
                     <div className="text-sm text-slate-600">Orang menunggu</div>
                   </div>
                   <div>
@@ -187,8 +162,6 @@ const WaitlistSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WaitlistSection;
